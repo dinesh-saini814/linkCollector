@@ -48,3 +48,11 @@ function render_div() {
     store_text = [];
   }
 }
+
+var colorBoxes = document.querySelectorAll(".color-box");
+for (var i = 0; i < colorBoxes.length; i++) {
+  colorBoxes[i].addEventListener("click", function () {
+    var color = this.getAttribute("data-color");
+    document.querySelector(".textdisplay").style.backgroundColor = color;
+  });
+}
