@@ -6,6 +6,7 @@
 body {
   font-family: "Poppins", sans-serif;
   max-width: 1170px;
+
   margin: auto;
   padding: 0 15px;
   position: absolute;
@@ -65,18 +66,28 @@ input:focus {
   box-shadow: 0 0 5px rgb(71, 71, 71);
   padding: 5px 10px;
   font-size: 16px;
+
   margin-top: 4px;
   transition: all 0.3s ease-in-out;
 }
 
 li {
   list-style: none;
-  margin-top: 5px;
+  margin-top: px;
 }
-li a {
+div a {
   /* text-decoration: none; */
   color: rgb(55, 218, 63);
   font-size: 16px;
   font-weight: 500;
+  margin-top: 5px;
   transition: all 0.3s ease-in-out;
+}
+
+.textdisplay a {
+  display: block;
+  width: 150px; /* Adjust this value according to your needs */
+  overflow: hidden;
+  /* white-space: nowrap; */
+  text-overflow: ellipsis;
 }

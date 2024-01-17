@@ -2,8 +2,8 @@ const buttonEle = document.querySelector("button");
 const inputEle = document.querySelector(".input_element");
 const inputext = document.querySelector(".input_text");
 
-const ulEl = document.querySelector("#ul-el");
-const ulEl2 = document.querySelector("#ul-el2");
+// const ulEl = document.querySelector("#ul-el");
+// const ulEl2 = document.querySelector("#ul-el2");
 
 const link_div = document.querySelector(".link_div");
 
