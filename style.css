@@ -7,7 +7,7 @@ body {
   font-family: "Poppins", sans-serif;
   max-width: 1170px;
   width: 400px;
-  margin: auto;
+  margin: 0 auto;
   padding: 0 15px;
   position: absolute;
   left: 5%;
@@ -23,6 +23,7 @@ body {
 button {
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  height: 40px;
   margin-bottom: 5px;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(255, 255, 255);
@@ -32,6 +33,9 @@ button {
   font-size: 16px;
   margin-top: 8px;
   transition: all 0.3s ease-in-out;
+}
+button:hover {
+  box-shadow: 0 0 10px rgb(71, 71, 71);
 }
 
 .input_text,
@@ -50,10 +54,6 @@ button {
 }
 ::placeholder {
   color: rgb(88, 88, 88);
-}
-
-button:hover {
-  box-shadow: 0 0 10px rgb(71, 71, 71);
 }
 
 input:focus {
@@ -76,11 +76,6 @@ input:focus {
   transition: all 0.3s ease-in-out;
 }
 
-li {
-  list-style: none;
-  margin-top: px;
-}
-
 .textdisplay a {
   display: block;
   width: 150px; /* Adjust this value according to your needs */
@@ -96,15 +91,18 @@ li {
 
 .colour_button {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .collor_pallate {
   display: flex;
-  width: 60%;
+  width: 65%;
+  height: 40px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin: 8px 8px;
-  padding: 0px 9px;
+  margin-bottom: 5px;
+  margin-top: 8px;
   flex-wrap: wrap;
   background-color: rgb(255, 255, 255);
   border: 1px solid rgb(255, 255, 255);
