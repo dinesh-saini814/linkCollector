@@ -161,3 +161,11 @@ i {
   align-items: center;
   margin-top: 5px;
 }
+
+.hide-button.fa-eye::before {
+  content: "\f06e"; /* Unicode for the eye icon */
+}
+
+.hide-button.fa-eye-slash::before {
+  content: "\f070"; /* Unicode for the slashed eye icon */
+}

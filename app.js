@@ -108,13 +108,20 @@ function deleteLink(id) {
 // function to toggle the hide button
 function toggleHide(id) {
   const linkDiv = document.getElementById(`link_${id}`);
+  const hideButton = linkDiv.querySelector(".hide-button");
   const linkTag = linkDiv.querySelector(".link_tag");
 
   // Toggle filter effect on click
-  if (linkTag.style.filter === "blur(5px)") {
+  if (linkTag.classList.contains("blurred")) {
     linkTag.style.filter = "none"; // Remove filter effect
+    linkTag.classList.remove("blurred");
+    hideButton.classList.remove("fa-eye-slash");
+    hideButton.classList.add("fa-eye");
   } else {
-    linkTag.style.filter = "blur(5px)"; // Apply filter effect
+    linkTag.style.filter = "blur(2px)"; // Apply filter effect
+    linkTag.classList.add("blurred");
+    hideButton.classList.remove("fa-eye");
+    hideButton.classList.add("fa-eye-slash");
   }
 
   linkDiv.classList.toggle("highlighted");
