@@ -9,6 +9,7 @@ const output = [
     id: 1,
     url: "https://www.google.com",
     text: "Google",
+    color: "#ffffff", // Default color
   },
 ];
 
@@ -19,10 +20,10 @@ render_list();
 function render_list() {
   let div_html = "";
   output.forEach((item) => {
-    const { id, url, text } = item;
+    const { id, url, text, color } = item;
 
     const html = `
-      <div class="textdisplay" id="link_${id}">
+      <div class="textdisplay" id="link_${id}" style="background-color: ${color}">
         <div class="action-buttons">
           <i class="delete-button fa fa-trash" style="color:#474747" onclick="deleteLink(${id})"></i> 
           <i class="hide-button icon fa fa-eye" style="color:#474747" onclick="toggleHide(${id})"></i>
@@ -52,18 +53,21 @@ buttonEle.addEventListener("click", () => {
     return;
   } else {
     const newId = output.length + 1;
+    const color = getRandomColor();
     output.push({
       id: newId,
       url: url_input.value,
       text: text_input.value,
+      color: color,
     });
 
     url_input.value = "";
     text_input.value = "";
 
+    console.log(color);
+
     placeChangeColor("rgb(88, 88, 88)");
     render_list();
-    colourChanger();
   }
 });
 
@@ -113,26 +117,33 @@ function toggleHide(id) {
     linkTag.style.filter = "blur(5px)"; // Apply filter effect
   }
 
-  // Add or remove the "highlighted" class
   linkDiv.classList.toggle("highlighted");
 }
 
-// function to change the background color
-// function colourChanger(color) {
-//   const outerList = document.querySelector(".link_div");
-//   const lastDiv = outerList.lastElementChild;
+function shuffleArray(array) {
+  const shuffledArray = array.slice();
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+}
 
-//   if (lastDiv) {
-//     lastDiv.style.backgroundColor = color;
-//   }
-// }
+const predefinedColors = [
+  "#f0e584",
+  "#ff9e9e",
+  "#aafa95",
+  "#a0d1cb",
+  "#a6bcda",
+  "#e4d6ba",
+  "#e0fbfc",
+  "#bdbdbd",
+];
 
-// const colorBoxes = document.querySelectorAll(".color-box"); // replace with your color box class
-// colorBoxes.forEach((box) => {
-//   box.addEventListener("click", function () {
-//     const color = this.style.backgroundColor;
-//     colourChanger(color);
-//   });
-// });
+const shuffledColors = shuffleArray(predefinedColors);
 
-//dfdfg
+function getRandomColor() {
+  const color = shuffledColors.shift();
+  shuffledColors.push(color); // Move the used color to the end of the array
+  return color;
+}
